@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lashwedi Drinka</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #e9ecef;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2196F3;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: #2196F3;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 2.5rem;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            animation: slideDown 0.3s;
+        }
+
+        .modal-content i {
+            font-size: 3rem;
+            color: #ff9800;
+            margin-bottom: 1rem;
+        }
+
+        .modal-content h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .modal-content p {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .close-btn {
+            background: linear-gradient(135deg, #2196F3, #00BCD4);
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .close-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 3rem 5%;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a1a1a;
+            opacity: 0;
+            animation: fadeInDown 0.8s ease forwards;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border: 1px solid #e0e0e0;
+            max-width: 700px;
+            width: 100%;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .contact-card h2 {
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+            color: #1a1a1a;
+            text-align: center;
+        }
+
+        .contact-card > p {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        /* Contact Info Grid */
+        .contact-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: #333;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .contact-item:nth-child(1) { animation-delay: 0.1s; }
+        .contact-item:nth-child(2) { animation-delay: 0.2s; }
+        .contact-item:nth-child(3) { animation-delay: 0.3s; }
+        .contact-item:nth-child(4) { animation-delay: 0.4s; }
+        .contact-item:nth-child(5) { animation-delay: 0.5s; }
+
+        .contact-item:hover {
+            background: #f8f9fa;
+            transform: translateX(10px) scale(1.02);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .contact-item i {
+            font-size: 1.4rem;
+            width: 30px;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover i {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .contact-item.phone i {
+            color: #2196F3;
+        }
+
+        .contact-item.whatsapp i {
+            color: #25D366;
+        }
+
+        .contact-item.linkedin i {
+            color: #0077B5;
+        }
+
+        .contact-item.facebook i {
+            color: #1877F2;
+        }
+
+        .contact-item span {
+            font-size: 0.95rem;
+        }
+
+        .contact-email {
+            grid-column: 1 / -1;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+
+        .contact-email i {
+            color: #EA4335;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                padding: 2rem 4%;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .contact-card {
+                padding: 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+        }
+
+         footer {
+      margin-top: auto;
+      background-color: #f5f5f5; /* light background */
+      text-align: center;
+      padding: 15px 0;
+      font-size: 14px;
+      color: #555;
+      border-top: 1px solid #ddd;
+    }
+
+    footer a {
+      color: #337ab7; /* link color */
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">L.D</div>
+        <ul class="nav-links">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="Projects.html">Projects</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    
+
+    <div class="contact-section">
+        <h1>Get in Touch</h1>
+
+        <div class="contact-card">
+            <h2>Let's Connect & Collaborate</h2>
+            <p>Ready to discuss your next project or connect with a fellow developer?</p>
+
+            <div class="contact-info">
+                <a href="tel:+917303240088" class="contact-item phone">
+                    <i class="fas fa-phone"></i>
+                    <span>+91 730 324 0088</span>
+                </a>
+
+                <a href="https://www.linkedin.com" class="contact-item linkedin" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    <span>Connect on LinkedIn <i class="fas fa-external-link-alt" style="font-size: 0.7rem; margin-left: 0.3rem;"></i></span>
+                </a>
+
+                <a href="https://wa.me/263787454302" class="contact-item whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>W.App: +263 787 454 302</span>
+                </a>
+
+                <a href="https://www.facebook.com" class="contact-item facebook" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                    <span>Lashwedi Drinka</span>
+                </a>
+
+                <a href="mailto:drinkalashwedi@gmail.com" class="contact-item contact-email">
+                    <i class="fas fa-envelope"></i>
+                    <span>drinkalashwedi@gmail.com</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+    © 2025 <a href="#">CyberLink Inc</a>. All rights reserved.
+  </footer>
+       
+</body>
+</html>

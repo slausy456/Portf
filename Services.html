@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lashwedi Drinka</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #e9ecef;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2196F3;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: #2196F3;
+        }
+
+        /* Services Section */
+        .services-container {
+            padding: 3rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a1a1a;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .service-category {
+            margin-bottom: 4rem;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            color: #1a1a1a;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        .service-card:nth-child(5) { animation-delay: 0.5s; }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            color: #2196F3;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            color: #1a1a1a;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-container {
+                padding: 2rem 4%;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .category-title {
+                font-size: 1.5rem;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+        }
+
+         footer {
+      margin-top: auto;
+      background-color: #f5f5f5; /* light background */
+      text-align: center;
+      padding: 15px 0;
+      font-size: 14px;
+      color: #555;
+      border-top: 1px solid #ddd;
+    }
+
+    footer a {
+      color: #337ab7; /* link color */
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">L.D</div>
+        <ul class="nav-links">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="Projects.html">Projects</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="services-container">
+        <h1 class="page-title">Professional Services</h1>
+
+        <!-- Full Stack Development Section -->
+        <div class="service-category">
+            <h2 class="category-title">Full Stack Development</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-header">
+                        <i class="fas fa-code service-icon"></i>
+                        <h3>Frontend Development</h3>
+                    </div>
+                    <p>Responsive web applications using React, TypeScript & modern frameworks</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <i class="fas fa-database service-icon"></i>
+                        <h3>Backend Development</h3>
+                    </div>
+                    <p>Scalable server solutions & database management</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- IT Support & Cybersecurity Section -->
+        <div class="service-category">
+            <h2 class="category-title">IT Support & Cybersecurity</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-header">
+                        <i class="fas fa-shield-alt service-icon"></i>
+                        <h3>Security Assessment</h3>
+                    </div>
+                    <p>Vulnerability scanning and security audits</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <i class="fas fa-headset service-icon"></i>
+                        <h3>Technical Support</h3>
+                    </div>
+                    <p>Hardware & software troubleshooting</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <i class="fas fa-lock service-icon"></i>
+                        <h3>Data Protection</h3>
+                    </div>
+                    <p>Implementation of security measures & best practices</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <i class="fas fa-network-wired service-icon"></i>
+                        <h3>Network Security</h3>
+                    </div>
+                    <p>Firewall configuration, intrusion detection & network monitoring</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <i class="fas fa-map-marked-alt service-icon"></i>
+                        <h3>Customised Tracking & Surveillance Systems</h3>
+                    </div>
+                    <p>Tailored tracking solutions for asset management and monitoring</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+    © 2025 <a href="#">CyberLink Inc</a>. All rights reserved.
+  </footer>
+  
+</body>
+</html>

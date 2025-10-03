@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lashwedi Drinka</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Message card */
+    .message-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      animation: fadeIn 0.5s ease;
+    }
+
+    .message-box img {
+      width: 60px;
+      margin-bottom: 15px;
+    }
+
+    .message-box h2 {
+      margin: 10px 0;
+      font-size: 22px;
+    }
+
+    .message-box p {
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    /* Button */
+    .close-btn {
+      background: #00bfff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .close-btn:hover {
+      background: #009acd;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.9);}
+      to {opacity: 1; transform: scale(1);}
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="message-box">
+    <img src="https://static.vecteezy.com/system/resources/previews/060/454/275/non_2x/shield-with-open-lock-symbol-concept-of-access-granted-secure-login-privacy-unlock-safe-settings-and-online-protection-icon-representing-security-breach-or-permission-granted-vector.jpg" alt="Privacy lock icon">
+    <h2>Information Unavailable!</h2>
+    <p>Due to privacy & security reasons the owner has restricted access to this page. </p>
+    <a href="Home.html" class="close-btn">Got it</a>
+  </div>
+
+</body>
+</html>
